@@ -1,0 +1,51 @@
+//- Mixins
+mixin table-list(rows)
+  ul.collection
+    each val, index in rows
+      li.collection-item
+        span= index
+        span.secondary-content.green-text.text-accent-3= val
+
+mixin service(icon, title)
+  .col.s12.m6.l6          
+    .icon.center-align
+      .icon_item.z-depth-2.white.hoverable
+        i.small.material-icons.circle= icon
+      h5= title
+      p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+    // -- end .icon-box
+
+// About
+section#about  
+  h2 About 
+    span.green-text.text-accent-3 Me
+  .row.about
+    .col.s12.m3.l4
+      img.responsive-img(src="./img/about1.png" alt="German Alfonso")
+    .col.s12.m8.l8
+      .padd.z-depth-2.white
+        h3 German Alfonso
+        h5 Developer &amp; Web Designer
+        .row
+          .col.s12.m12.l6
+            p.text-flow Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem.
+          .col.s12.m12.l6
+            p.text-flow Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem.
+        .row
+          .col.s12.m12.l6
+            +table-list({'Name':'Carlose Smith','Date of Bith':'September 9, 1982','Address':'1234 Street Road City Name'})
+          .col.s12.m12.l6
+            +table-list({'Email':'myemail@gmail.com','Phone':'57 312 741 8138','Skype':'Carlose_smith'})
+        .padd  
+          p.text-flow Ut enim ad minim veniam, quis nostrud exerc. Irure dolor in reprehend incididunt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.      
+            div.signature.right-align
+              p.text-flow Yours sincerely,
+              img.img-responsive(src="https://tanya-cv-demo.herokuapp.com/images/signature_scan.gif" alt="signature")
+      .row
+        h4 Services
+        +service('important_devices', 'Web Design')
+        +service('phone_iphone', 'App Development')
+        +service('favorite_border', 'Branding')
+        +service('record_voice_over', 'Marketing')
+        +service('local_printshop', 'Print')
+        +service('verified_user', 'Great Support')      

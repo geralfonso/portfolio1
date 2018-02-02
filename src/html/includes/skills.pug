@@ -1,0 +1,49 @@
+//- Mixins
+mixin progress-bar(name,num)
+  label.progress-bar-label.grey-text.text-darken-4= name
+    .progress-line
+      .progress-bar(role="progressbar" aria-valuenow=num aria-valuemin="0" aria-valuemax="100" style="width:"+num+"%;")
+        span.z-depth-2= num+'%'
+
+mixin collection(items)
+  .col.s12.m6.l3
+    ul
+      each item in items
+        li
+          i.material-icons.green-text.text-accent-3 check
+          span= item
+
+mixin circular(value,name)
+  .col.s12.m4.l2.center-align
+    div(class="progress-circular " + name)
+      span.progress-left
+        span.progress-bar
+      span.progress-right
+        span.progress-bar
+      .progress-value= value
+    .progress-name= name
+// Skils
+section#skills
+  h2 My 
+    span.green-text.text-accent-3 Skills
+  .row.skills
+    .col.s12.m6.l6.z-depth-2.white
+      .padd
+        h4 CODING SKILLS
+        +progress-bar('HTML&CSSL',99)
+        +progress-bar('PHP&MYSQL',75)
+        +progress-bar('JAVASCRIPT',67)
+    .col.s12.m6.l6.z-depth-2.white
+      .padd  
+        h4 DESIGN SKILLS
+        +progress-bar('Photoshop',80)
+        +progress-bar('Illustrator',99)
+        +progress-bar('Indesign',67)
+  .row
+    h4 Language Skills & Knowledge
+    .padd.z-depth-2.white.clearfix
+      +circular('95%', 'english')
+      +circular('82%', 'french')
+      +circular('75%', 'chinese')    
+      +collection(['INSTALL AND CONFIGURE','WEB USABILITY','DIGITAL PAINTING','GRID AND LAYOUT','MOBILE APP DESIGN','GRAPHICAL DESIGN','SEO OPTIMIZATION'])
+      +collection(['UX AND UI DESIGN','LOGO DESIGN','VISUAL EFFECTS','AUDIO VIDEO EDITING','PHOTOGRAPHY','WEB DEVELOPMENT','DIGITAL MARKETING'])

@@ -1,0 +1,19 @@
+=offset
+  &:target:before
+    content: ""
+    display: block
+    height: $hheader
+    margin: (-64px) 0 0
+
+=loading($lang, $per)
+  &.#{$lang}
+    .progress-left
+      .progress-bar
+        animation: loading-#{$lang} 1.5s linear forwards 1.8s
+
+  @keyframes loading-#{$lang}
+    0%
+      transform: rotate(0deg)
+
+    100%
+      transform: rotate(#{per($per)}deg)

@@ -1,0 +1,36 @@
+//- Mixins
+
+mixin list-filter(data, name)
+  a.waves-effect.waves-light.btn.green.accent-3(data-card=data)= name
+
+mixin list-works(items)
+  .col.s12.m6.l4.work(class=items)
+    .card
+      .card-image
+        img.work_img.img-responsive(src="./images/"+items[0]+".jpg" alt=items[0])
+        .card-content
+          each val, index in items
+            if  (index == items.length -1)
+              em= val +"."
+            else
+              em= val +","
+
+// Portfolio
+section#portfolio
+  h2 My 
+    span.green-text.text-accent-3 Portfolio
+  .portfolio
+    .row
+      .col.s12.m12.l12.center-align#filters
+        +list-filter("work","Show All")
+        +list-filter("websites","websites")
+        +list-filter("design","design")
+        +list-filter("print","print")
+        +list-filter("marketing","marketing")
+        +list-filter("app","app")
+    .row#works
+      +list-works(['websites'])
+      +list-works(['marketing','websites'])
+      +list-works(['print', 'design','app'])
+      +list-works(['design','marketing'])
+      +list-works(['app', 'marketing'])

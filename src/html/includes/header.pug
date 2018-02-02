@@ -1,0 +1,20 @@
+//- Mixins
+mixin nav-list(clase, id)
+  ul(class=clase id=id)
+    each val in ["home","about","skills","portfolio","contact"]
+      if val == "home"
+        li
+          a.activo(href= '#'+val)= val
+      else
+        li
+          a(href= '#'+val)= val
+// Header
+header.navbar-fixed
+  nav.white.darken-3
+    .nav-wrapper.container
+      a.brand-logo.--bold.grey-text.text-darken-4(href="#") Ger
+        span.--light Alfonso
+      a.button-collapse(href="#" data-activates="nav-mobile")
+        i.material-icons menu
+      +nav-list('right hide-on-med-and-down')
+      +nav-list('side-nav','nav-mobile')

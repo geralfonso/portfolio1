@@ -1,0 +1,22 @@
+//- Mixins
+mixin foo-list  
+    each val in ["home","about","skills","portfolio"]
+      li
+        a.grey-text.text-darken-4(href= '#'+val)= val
+// Footer
+.footer.page-footer.white.darken-3.z-depth-2
+  .container.green-text.text-accent-3
+    .row
+      .col.s12.l6
+        h5 About Me
+        p.black-text.text-lighten-4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus molestiae vel beatae natus eveniet.            
+      .col.l4.offset-l2.s12
+        h5 
+        ul.foo-li
+          +foo-list
+  .footer-copyright
+    .container.black-text.text-lighten-4
+      | © 
+      script document.write(new Date().getFullYear()); 
+      |  Copyright German Alfonso
+      a.black-text.text-lighten-4.right(href="#contact") Contact

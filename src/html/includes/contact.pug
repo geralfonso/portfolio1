@@ -1,0 +1,41 @@
+//- Mixins
+mixin lies(lie, icon)
+  li.collection-item
+    i.material-icons= icon
+    | #{lie}
+
+// Contact
+section#contact
+  h2 Contact 
+    span.green-text.text-accent-3 Me
+  .row.contact
+    .col.s12.m5.l5.z-depth-2.white
+      .padd
+        h4 Contact Address
+        ul.collection
+          +lies("Mountain View, CA 94043","location_on")
+          +lies("Phone: +61 012 345 6789","phone_iphone")
+          +lies("Email: example@gmail.com","email")
+          +lies("Website: http://example.me","web")
+    form.col.s12.m7.l7.z-depth-2.white
+      .padd
+        h4 Contact Address
+        .row
+          .input-field.col.s12.m6
+            input#first_name(type="text" class="validate")
+            label(for="first_name") First Name
+          .input-field.col.s12.m6
+            input#last_name(type="text" class="validate")
+            label(for="last_name") Last Name
+        .row
+          .input-field.col.s12
+            input#email(type="email" class="validate")
+            label(for="email") Email
+        .row
+          .input-field.col.s12
+            textarea#textarea1.materialize-textarea
+            label(for="textarea1") Message
+        .row
+          .input-field.col.s12
+            button.btn.waves-effect.waves-light.green.accent-3(type="submit" name="action") Submit
+              i.material-icons.right send
