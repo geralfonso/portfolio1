@@ -16,7 +16,7 @@ const gulp = require('gulp'),
 //     .pipe(pug({
 //       pretty: true
 //     }))
-//     .pipe(gulp.dest('./dist/'))
+//     .pipe(gulp.dest('./docs/'))
 //     .pipe(browserSync.reload({
 //       stream: true
 //     }));
@@ -31,7 +31,7 @@ gulp.task('sassdoc', function () {
     }))
     .pipe(sassdoc())
     .pipe(rename((path) => {
-      path.extname = ".sass";
+      path.extname = '.sass';
     }))
     .pipe(gulp.dest('./src/sass/'));
 });
@@ -43,7 +43,7 @@ gulp.task('pug', (pg) => {
       pug({
         pretty: true
       }),
-      gulp.dest('./dist/'),
+      gulp.dest('./docs/'),
       browserSync.reload({
         stream: true
       })
@@ -57,14 +57,14 @@ gulp.task('sass', () => {
   gulp.src(['./src/sass/*.sass', './src/sass/*.scss'])
     .pipe(sourcemaps.init())
     .pipe(sass({
-      outputStyle: 'expanded',
+      outputStyle: 'compressed',
       sourceComments: false
     })).on('error', sass.logError)
     .pipe(autoprefixer({
       versions: ['last 10 versions']
     }))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./dist/css'))
+    .pipe(gulp.dest('./docs/css'))
     .pipe(browserSync.reload({
       stream: true
     }));
@@ -76,7 +76,7 @@ gulp.task('compress', (cb) => {
       gulp.src(['./src/js/*.js']),
       concat('bundle.js'),
       uglify(),
-      gulp.dest('./dist/js')
+      gulp.dest('./docs/js')
     ],
     cb
   );
@@ -94,7 +94,7 @@ gulp.task('server', () => {
   browserSync.init({
     port: '3000',
     server: {
-      baseDir: './dist/'
+      baseDir: './docs/'
     }
   });
 });
@@ -103,5 +103,5 @@ gulp.task('default', ['server'], () => {
   gulp.watch(['./src/html/*.pug', './src/html/**/*.pug'], ['pug']);
   gulp.watch(['./src/sass/*.sass', './src/sass/**/*.sass'], ['sass']);
   gulp.watch('./src/js/*.js', ['js-watch']);
-  gulp.watch('./dist/index.html').on('change', browserSync.reload);
+  gulp.watch('./docs/index.html').on('change', browserSync.reload);
 });

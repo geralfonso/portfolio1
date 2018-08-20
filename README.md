@@ -1,3 +1,5 @@
-# Personal Porfolio Test
+# Personal Porfolio
 
-# For frecodecamp.org
+## This is my own template for personal porfolio
+
+This is made using [Materialize](https://materializecss.com/)
