@@ -42,6 +42,8 @@
 !.gitignore
 !gulpfile.js
 !package.json
+!.eslintrc
+!.prettierrc
 
 # track .editorconfig file (i.e. do NOT ignore it)
 !.editorconfig
